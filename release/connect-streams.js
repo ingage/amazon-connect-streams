@@ -30809,7 +30809,6 @@ AWS.apiLoader.services['connect']['2017-02-15'] = require('../apis/connect-2017-
   let storageParams = {};
   let originalCCPUrl = '';
   let rsaContainer = null;
-  let onGrantCallbackInvoked = false;
   let requesthandlerUnsubscriber;
 
   const storageAccessEvents = {
@@ -31017,6 +31016,8 @@ AWS.apiLoader.services['connect']['2017-02-15'] = require('../apis/connect-2017-
     if (requesthandlerUnsubscriber) {
       requesthandlerUnsubscriber.unsubscribe();
     }
+
+    let onGrantCallbackInvoked = false;
 
     requesthandlerUnsubscriber = onRequestHandler({
       onInit: (messageData) => {
